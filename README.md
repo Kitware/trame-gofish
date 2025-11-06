@@ -14,6 +14,45 @@ And you will get the picture below that you can animate!
 
 ![Demo](https://raw.githubusercontent.com/Kitware/trame-gofish/refs/heads/main/trame-gofish.png)
 
+by setting up a widget with trame like
+
+```py
+gofish.GoFishGraph(
+    data=("dataset", SEAFOOD),
+    update="""
+      ({ gf, data, el }) => (
+            gf.layer(
+                { coord: gf.clock() },
+                [
+                  gf.chart(data)
+                    .flow(
+                        gf.spread('lake', {
+                            dir: 'x',
+                            spacing: (2 * Math.PI) / 6,
+                            mode: 'center',
+                            y: 50,
+                            label: false,
+                        }),
+                        gf.derive((d) => gf.orderBy(d, 'count')),
+                        gf.stack('species', { dir: 'y', label: false })
+                    )
+                    .mark(gf.rect({ h: 'count', fill: 'species' }))
+                    .as('bars'),
+                  gf.chart(gf.select('bars'))
+                    .flow(gf.group('species'))
+                    .mark(gf.area({ opacity: 0.8 })),
+                ]
+            ).render(el, {
+                w: 500,
+                h: 300,
+                transform: { x: 250, y: 150 },
+                axes: true,
+            })
+      )
+    """,
+)
+```
+
 ## License
 
 This library is OpenSource and follow the MIT License
