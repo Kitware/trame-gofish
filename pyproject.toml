@@ -89,6 +89,7 @@ isort.required-imports = []
 "tests/**" = ["T20"]
 "noxfile.py" = ["T20"]
 "src/**" = ["SIM117"]
+"examples/**" = ["EXE003"]
 [tool.semantic_release]
 version_toml = [
     "pyproject.toml:project.version",
@@ -97,4 +98,9 @@ version_variables = [
     "src/trame_gofish/__init__.py:__version__",
 ]
 
-build_command = "uv build"
+build_command = """
+  python -m venv .venv
+  source .venv/bin/activate
+  pip install -U pip build
+  python -m build .
+"""
