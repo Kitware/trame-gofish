@@ -3,11 +3,16 @@
 Trame widget for GoFish chart library that can be found at
 https://gofish.graphics/
 
-[Demo](https://raw.githubusercontent.com/Kitware/trame-gofish/refs/heads/main/trame-gofish.png)
+If you want to quickly try it out, you can run the command line below (assuming
+you have **uv**)
 
 ```
 uv run https://raw.githubusercontent.com/Kitware/trame-gofish/refs/heads/main/examples/tuto-final.py
 ```
+
+And you will get the picture below that you can animate!
+
+![Demo](https://raw.githubusercontent.com/Kitware/trame-gofish/refs/heads/main/trame-gofish.png)
 
 ## License
 
