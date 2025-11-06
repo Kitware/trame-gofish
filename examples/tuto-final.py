@@ -106,11 +106,10 @@ class TutoFinal(TrameApp):
     def next(self):
         for idx, entry in enumerate(self.state.dataset):
             delta = self.directions[idx]
-            if self.bounce_range[0] < entry["count"] < self.bounce_range[1]:
+            if self.bounce_range[0] < entry["count"] + delta < self.bounce_range[1]:
                 entry["count"] += delta
             else:
                 self.directions[idx] *= -1
-                entry["count"] -= delta
 
         self.state.dirty("dataset")
 
