@@ -9,7 +9,7 @@ dependencies = [
     "trame_client>=3.10",
 ]
 requires-python = ">=3.9"
-readme = "README.rst"
+readme = "README.md"
 license = {text = "MIT License"}
 keywords = ["Python", "Interactive", "Web", "Application", "Framework"]
 classifiers = [
